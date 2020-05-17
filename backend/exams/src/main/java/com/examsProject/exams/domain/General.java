@@ -1,11 +1,12 @@
 package com.examsProject.exams.domain;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Table(name = "general")
-class General {
+//@Table(name = "general")
+public class General {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int generalId;
@@ -14,15 +15,16 @@ class General {
     private int studyYear;
 
     @OneToMany(mappedBy = "general")
-    public Set<Planning> planning;
+    public List<Planning> plannings;
 
     public General() {}
 
-    public General(int generalId, String major, int studyYear, Set<Planning> planning) {
+    public General(int generalId, String major, int studyYear, List<Planning> plannings)
+    {
         this.generalId = generalId;
         this.major = major;
         this.studyYear = studyYear;
-        this.planning = planning;
+        this.plannings = plannings;
     }
 
     public int getGeneralId() {
@@ -49,11 +51,11 @@ class General {
         this.studyYear = studyYear;
     }
 
-    public Set<Planning> getPlanning() {
-        return planning;
+    public List<Planning> getPlanning() {
+        return plannings;
     }
 
-    public void setPlanning(Set<Planning> planning) {
-        this.planning = planning;
+    public void setPlanning(List<Planning> plannings) {
+        this.plannings = plannings;
     }
 }

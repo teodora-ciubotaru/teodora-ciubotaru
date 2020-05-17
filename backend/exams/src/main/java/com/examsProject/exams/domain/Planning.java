@@ -1,18 +1,20 @@
 package com.examsProject.exams.domain;
 
+
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "planning")
-class Planning {
+//@Table(name = "planning")
+public class Planning {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int planningId;
 
     @ManyToOne
     @JoinColumn(name = "session_id")
-    private ExamSession sessions;
+    private ExamSession session;
 
     @ManyToOne
     @JoinColumn(name = "general_id")
@@ -20,11 +22,11 @@ class Planning {
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    private Course courses;
+    private Course course;
 
     @ManyToOne
     @JoinColumn(name = "professor_id")
-    private Professor professors;
+    private Professor professor;
 
     private int numberOfSeats;
     private Date examDate;
@@ -32,11 +34,12 @@ class Planning {
 
     public Planning() {}
 
-    public Planning(ExamSession sessions, General general, Course courses, Professor professors, int numberOfSeats, Date examDate, String classroom) {
-        this.sessions = sessions;
+    //
+    public Planning(ExamSession session, General general, Course course, Professor professor, int numberOfSeats, Date examDate, String classroom) {
+        this.session = session;
         this.general = general;
-        this.courses = courses;
-        this.professors = professors;
+        this.course = course;
+        this.professor = professor;
         this.numberOfSeats = numberOfSeats;
         this.examDate = examDate;
         this.classroom = classroom;
@@ -50,15 +53,15 @@ class Planning {
         this.planningId = planningId;
     }
 
-    public ExamSession getSessions() {
-        return sessions;
+    public ExamSession getSession() {
+        return session;
     }
 
-    public void setSessions(ExamSession sessions) {
-        this.sessions = sessions;
+    public void setSession(ExamSession session) {
+        this.session = session;
     }
 
-    public General getGeneral() {
+   public General getGeneral() {
         return general;
     }
 
@@ -66,20 +69,20 @@ class Planning {
         this.general = general;
     }
 
-    public Course getCourses() {
-        return courses;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourses(Course courses) {
-        this.courses = courses;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     public Professor getProfessors() {
-        return professors;
+        return professor;
     }
 
-    public void setProfessors(Professor professors) {
-        this.professors = professors;
+    public void setProfessors(Professor professor) {
+        this.professor = professor;
     }
 
     public int getNumberOfSeats() {

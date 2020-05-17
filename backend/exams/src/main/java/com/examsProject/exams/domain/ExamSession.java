@@ -1,22 +1,28 @@
 package com.examsProject.exams.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "exam_sessions")
-class ExamSession {
+//@Table(name = "exam_sessions")
+public class ExamSession {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int sessionId;
 
-    private String examsSession;
+    private String examSession;
     private String academicYear;
+
+    @OneToMany(mappedBy = "session")
+    private List<Planning> planning;
 
     public ExamSession() {}
 
-    public ExamSession(String examsSession, String academicYear) {
-        this.examsSession = examsSession;
+    public ExamSession(String examSession, String academicYear, List<Planning> planning)
+    {
+        this.examSession = examSession;
         this.academicYear = academicYear;
+        this.planning = planning;
     }
 
     public int getSessionId() {
@@ -27,12 +33,12 @@ class ExamSession {
         this.sessionId = sessionId;
     }
 
-    public String getExamsSession() {
-        return examsSession;
+    public String getExamSession() {
+        return examSession;
     }
 
-    public void setExamsSession(String examsSession) {
-        this.examsSession = examsSession;
+    public void setExamsSession(String examSession) {
+        this.examSession = examSession;
     }
 
     public String getAcademicYear() {
@@ -41,5 +47,13 @@ class ExamSession {
 
     public void setAcademicYear(String academicYear) {
         this.academicYear = academicYear;
+    }
+
+    public List<Planning> getPlanning() {
+        return planning;
+    }
+
+    public void setPlanning(List<Planning> planning) {
+        this.planning = planning;
     }
 }

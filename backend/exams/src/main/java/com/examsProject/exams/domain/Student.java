@@ -3,8 +3,9 @@ package com.examsProject.exams.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "students")
+//@Table(name = "students")
 class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int studentId;
@@ -16,16 +17,16 @@ class Student {
 
     @ManyToOne
     @JoinColumn(name = "general_id")
-    private int generalId;
+    private General general;
 
     public Student() {}
 
-    public Student(String studentName, String email, String password, int accessLevel, int generalId) {
+    public Student(String studentName, String email, String password, int accessLevel, General general) {
         this.studentName = studentName;
         this.email = email;
         this.password = password;
         this.accessLevel = accessLevel;
-        this.generalId = generalId;
+        this.general = general;
     }
 
     public int getStudentId() {
@@ -68,11 +69,11 @@ class Student {
         this.accessLevel = accessLevel;
     }
 
-    public int getGeneralId() {
-        return generalId;
+    public General getGeneral() {
+        return general;
     }
 
-    public void setGeneralId(int generalId) {
-        this.generalId = generalId;
+    public void setGeneral(General general) {
+        this.general = general;
     }
 }

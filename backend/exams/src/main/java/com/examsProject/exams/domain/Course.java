@@ -1,41 +1,50 @@
 package com.examsProject.exams.domain;
 
-//@Entity
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 //@Table(name = "courses")
-class Course {
-    //@Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+public class Course {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int courseId;
+
     private String courseName;
+
+    @OneToMany(mappedBy = "course")
+    private List<Planning> plannings;
 
     public Course() {}
 
-    public Course(int courseId, String courseName) {
+    public Course(int courseId, String courseName, List<Planning> plannigns) {
         this.courseId = courseId;
         this.courseName = courseName;
+        this.plannings = plannigns;
     }
 
-    public int getCourseId() {
+    public int getCourseId(){
         return courseId;
     }
 
-    public void setCourseId(int courseId) {
+    public String getCourseName(){
+        return  courseName;
+    }
+
+    public void setCourseId(int courseId){
         this.courseId = courseId;
     }
 
-    public String getCourseName() {
-        return courseName;
-    }
-
-    public void setCourseName(String courseName) {
+    public void setCourseName(String courseName){
         this.courseName = courseName;
     }
 
-    /*@Override
-    public String toString() {
-        return "Courses{" +
-                "course_id=" + course_id +
-                ", course_name='" + course_name + '\'' +
-                '}' + '\n';
-    }*/
+    public List<Planning> getPlanning() {
+        return plannings;
+    }
+
+    public void setPlanning(List<Planning> plannings) {
+        this.plannings = plannings;
+    }
 }
