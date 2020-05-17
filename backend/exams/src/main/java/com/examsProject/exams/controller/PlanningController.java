@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PlanningController {
@@ -19,12 +20,11 @@ public class PlanningController {
         return planningService.getAllPlannings();
     }
 
-    /*error ambiguous path + eroare din planningsService
     @RequestMapping("/plannings/{id}")
-    public Plannings getPlanningId(@PathVariable Long id)
+    public Optional<Planning> getPlanningId(@PathVariable int id)
     {
-        return planningsService.getPlanningId(id);
-    }*/
+        return planningService.getPlanningId(id);
+    }
 
     /*error ambiguous path
     @RequestMapping("/plannings/{planning_name}")

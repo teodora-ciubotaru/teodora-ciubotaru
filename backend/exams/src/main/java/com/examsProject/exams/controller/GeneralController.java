@@ -44,14 +44,14 @@ public class GeneralController {
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/general/{id}")
-    public void updategeneral(@RequestBody General general, @PathVariable int id)
+    public void updateGeneral(@RequestBody General general, @PathVariable int id)
     {
         generalService.updateGeneral(id, general);
     }
 
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/general/{id}")
-    public void deletegeneral(@PathVariable int id)
+    public void deleteGeneral(@PathVariable int id)
     {
         generalService.deleteGeneral(id);
     }

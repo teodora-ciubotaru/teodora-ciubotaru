@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlanningService {
@@ -21,12 +22,12 @@ public class PlanningService {
         return plannings;
     }
 
-    /*returneaza un curs dupa id
-  public Plannings getPlanningId(Long id) {
-      //return plannings.stream().filter(c -> c.getPlanning_id().equals(id)).findFirst().get();
-      return planningsRepository.findOne(id);
-  }
-
+    //returneaza un curs dupa id
+    public Optional<Planning> getPlanningId(int id)
+    {
+        return planningRepository.findById(id);
+    }
+/*
     public Plannings getPlanningName(String planning_name) {
         return plannings.stream().filter(c -> c.getPlanning_name().equals(planning_name)).findFirst().get();
     }*/

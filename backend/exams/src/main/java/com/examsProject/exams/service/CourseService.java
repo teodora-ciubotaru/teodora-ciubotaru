@@ -20,12 +20,12 @@ public class CourseService {
         return courses;
     }
 
-    /*returneaza un curs dupa id
-  public Courses getCourseId(Long id) {
-      //return courses.stream().filter(c -> c.getCourse_id().equals(id)).findFirst().get();
-      return coursesRepository.findOne(id);
+    //returneaza un curs dupa id
+  public Optional<Course> getCourseId(int id)
+  {
+      return courseRepository.findById(id);
   }
-
+/*
     public Courses getCourseName(String course_name) {
         return courses.stream().filter(c -> c.getCourse_name().equals(course_name)).findFirst().get();
     }*/

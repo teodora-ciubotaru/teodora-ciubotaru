@@ -18,10 +18,10 @@ public class Course {
 
     public Course() {}
 
-    public Course(int courseId, String courseName, List<Planning> plannigns) {
+    public Course(int courseId, String courseName) {
         this.courseId = courseId;
         this.courseName = courseName;
-        this.plannings = plannigns;
+        //this.plannings = plannigns;
     }
 
     public int getCourseId(){
