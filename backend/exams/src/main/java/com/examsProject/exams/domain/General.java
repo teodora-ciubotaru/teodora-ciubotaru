@@ -2,6 +2,7 @@ package com.examsProject.exams.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 //@Table(name = "general")
@@ -15,16 +16,20 @@ public class General {
     private int studyYear;
 
     @OneToMany(mappedBy = "general")
+    public List<Student> students;
+
+    @OneToMany(mappedBy = "general")
     public List<Planning> plannings;
 
     public General() {}
 
-    public General(int generalId, String major, int studyYear, List<Planning> plannings)
+    public General(int generalId, String major, int studyYear, List<Planning> plannings, List<Student> students)
     {
         this.generalId = generalId;
         this.major = major;
         this.studyYear = studyYear;
         this.plannings = plannings;
+        this.students = students;
     }
 
     public int getGeneralId() {
@@ -58,4 +63,14 @@ public class General {
     public void setPlanning(List<Planning> plannings) {
         this.plannings = plannings;
     }
+
+    public List<Student> getStudent() {
+        return students;
+    }
+
+    public void setStudent(List<Student> students) {
+        this.students = students;
+    }
+
+
 }

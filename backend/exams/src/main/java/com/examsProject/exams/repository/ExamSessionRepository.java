@@ -1,8 +1,8 @@
 package com.examsProject.exams.repository;
 
-import com.examsProject.exams.domain.Course;
-import com.examsProject.exams.domain.ExamSession;
-import org.springframework.data.repository.CrudRepository;
 
-public interface ExamSessionRepository extends CrudRepository<ExamSession, Integer> {
+import com.examsProject.exams.domain.ExamSession;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ExamSessionRepository extends JpaRepository<ExamSession, Integer> {
 }

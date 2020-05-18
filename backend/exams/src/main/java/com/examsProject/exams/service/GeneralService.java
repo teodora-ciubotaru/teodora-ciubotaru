@@ -15,17 +15,16 @@ public class GeneralService {
 
     public List<General> getAllGenerals()
     {
-        List<General> generals = new ArrayList<>();
-        generalRepository.findAll().forEach(generals::add);
-        return generals;
+        return generalRepository.findAll();
     }
 
     /*returneaza un curs dupa id
-    public Courses getCourseId(Long id) {
+    public General getCourseId(Long id) {
         //return courses.stream().filter(c -> c.getCourse_id().equals(id)).findFirst().get();
         return generalRepository.findOne(id);
-    }
+    }*/
 
+    /*
     public Courses getCourseName(String course_name) {
         return courses.stream().filter(c -> c.getCourse_name().equals(course_name)).findFirst().get();
     }*/

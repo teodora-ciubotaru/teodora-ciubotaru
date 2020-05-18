@@ -14,19 +14,20 @@ public class GeneralController {
     private GeneralService generalService;
 
 
-    @RequestMapping("/generals")
+    @GetMapping("/generals")
     public List<General> getAllgenerals()
     {
         return generalService.getAllGenerals();
     }
 
     /*error ambiguous path + eroare din CoursesService
-    @RequestMapping("/courses/{id}")
-    public Courses getCourseId(@PathVariable Long id)
+    @RequestMapping("/generals/{id}")
+    public General getCourseId(@PathVariable int id)
     {
-        return coursesService.getCourseId(id);
-    }
+        return generalService.getGeneralId(id);
+    }*/
 
+    /*
     error ambiguous path
     @RequestMapping("/courses/{course_name}")
     public Courses getCourseName(@PathVariable String course_name)

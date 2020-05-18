@@ -14,13 +14,13 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @RequestMapping("/courses")
+    @GetMapping("/courses")
     public List<Course> getAllCourses()
     {
         return courseService.getAllCourses();
     }
 
-    @RequestMapping("/courses/{id}")
+    @GetMapping("/courses/{id}")
     public Optional<Course> getCourseId(@PathVariable int id)
     {
         return courseService.getCourseId(id);

@@ -16,9 +16,7 @@ public class ProfessorService {
 
     public List<Professor> getAllProfessors()
     {
-        List<Professor> professors = new ArrayList<>();
-        professorRepository.findAll().forEach(professors::add);
-        return professors;
+        return professorRepository.findAll();
     }
 
     /* returneaza un curs dupa id

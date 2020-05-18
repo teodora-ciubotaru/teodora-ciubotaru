@@ -14,7 +14,7 @@ public class PlanningController {
     @Autowired
     private PlanningService planningService;
 
-    @RequestMapping("/plannings")
+    @GetMapping("/plannings")
     public List<Planning> getAllPlannings()
     {
         return planningService.getAllPlannings();

@@ -13,7 +13,7 @@ public class ExamSessionController {
     @Autowired
     private ExamSessionService examSessionService;
 
-    @RequestMapping("/examSessions")
+    @GetMapping("/examSessions")
     public List<ExamSession> getAllExamSessions()
     {
         return examSessionService.getAllExamSessions();

@@ -14,10 +14,8 @@ public class CourseService {
     private CourseRepository courseRepository;
 
    public List<Course> getAllCourses()
-    {
-        List<Course> courses = new ArrayList<>();
-        courseRepository.findAll().forEach(courses::add);
-        return courses;
+   {
+       return courseRepository.findAll();
     }
 
     //returneaza un curs dupa id

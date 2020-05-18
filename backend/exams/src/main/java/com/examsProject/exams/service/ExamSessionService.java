@@ -16,9 +16,9 @@ public class ExamSessionService {
 
     public List<ExamSession> getAllExamSessions()
     {
-        List<ExamSession> examSessions = new ArrayList<>();
-        examSessionRepository.findAll().forEach(examSessions::add);
-        return examSessions;
+
+        return examSessionRepository.findAll();
+
     }
 
     /* returneaza un curs dupa id

@@ -17,9 +17,7 @@ public class PlanningService {
 
     public List<Planning> getAllPlannings()
     {
-        List<Planning> plannings = new ArrayList<>();
-        planningRepository.findAll().forEach(plannings::add);
-        return plannings;
+        return planningRepository.findAll();
     }
 
     //returneaza un curs dupa id

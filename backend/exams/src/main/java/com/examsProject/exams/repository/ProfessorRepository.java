@@ -1,8 +1,7 @@
 package com.examsProject.exams.repository;
 
-import com.examsProject.exams.domain.Course;
 import com.examsProject.exams.domain.Professor;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProfessorRepository extends CrudRepository<Professor, Integer> {
+public interface ProfessorRepository extends JpaRepository<Professor, Integer> {
 }

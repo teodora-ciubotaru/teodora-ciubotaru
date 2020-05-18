@@ -13,7 +13,7 @@ public class ProfessorController {
     @Autowired
     private ProfessorService professorService;
 
-    @RequestMapping("/professors")
+    @GetMapping("/professors")
     public List<Professor> getAllProfessors()
     {
         return professorService.getAllProfessors();
