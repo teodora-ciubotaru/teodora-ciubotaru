@@ -1,3 +1,4 @@
+/* Doar pentru test. In "productie" trebuie stearsa aceasta linie */
 DROP TABLE professor, course, general, exam_session, student, planning;
 
 CREATE TABLE IF NOT EXISTS professor (
