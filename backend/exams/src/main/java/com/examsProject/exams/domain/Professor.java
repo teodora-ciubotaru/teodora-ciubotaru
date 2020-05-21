@@ -1,54 +1,33 @@
 package com.examsProject.exams.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 //@Table(name = "professor")
 public class Professor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer professorId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Integer professorId;
 
-    private String professorName;
+  private String professorName;
 
-    @OneToMany(mappedBy = "professor")
-    private List<Planning> plannings;
+  public int getProfessorId() {
+    return professorId;
+  }
 
-    public Professor() {}
+  public void setProfessorId(int professorId) {
+    this.professorId = professorId;
+  }
 
-    public Professor(int professorId, String professorName, List<Planning> plannings) {
-        this.professorId = professorId;
-        this.professorName = professorName;
-        this.plannings = plannings;
-    }
+  public String getProfessorName() {
+    return professorName;
+  }
 
-    public Professor(String professorName) {
-        this.professorName = professorName;
-    }
-
-    public int getProfessorId() {
-        return professorId;
-    }
-
-    public void setProfessorId(int professorId) {
-        this.professorId = professorId;
-    }
-
-    public String getProfessorName() {
-        return professorName;
-    }
-
-    public void setProfessorName(String professorName) {
-        this.professorName = professorName;
-    }
-
-    public List<Planning> getPlanning() {
-        return plannings;
-    }
-
-    public void setPlanning(List<Planning> plannings) {
-        this.plannings = plannings;
-    }
+  public void setProfessorName(String professorName) {
+    this.professorName = professorName;
+  }
 }

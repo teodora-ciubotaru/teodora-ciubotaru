@@ -1,4 +1,3 @@
-/*
 INSERT INTO professor (professor_name)
 VALUES ('Roxana Dogaru');
 
@@ -219,10 +218,10 @@ INSERT INTO general (major, study_year)
 VALUES ('Informatica Engleza', 3);
 
 INSERT INTO student (student_name, email, password, access_level, general_id)
-VALUES ('Maria Vasilescu', 'maria.vasilescu98@e-uvt.ro', 'passowrd', false, 1);
+VALUES ('Maria Vasilescu', 'maria.vasilescu98@e-uvt.ro', 'passowrd', false, ( SELECT general_id FROM general WHERE major = 'Informatica Engleza' AND study_year = '1'));
 
 INSERT INTO student (student_name, email, password, access_level, general_id)
-VALUES ('George Ionescu', 'george.ionescu97@e-uvt.ro', 'passowrd', true, 2);
+VALUES ('George Ionescu', 'george.ionescu97@e-uvt.ro', 'passowrd', true, ( SELECT general_id FROM general WHERE major = 'Informatica Engleza' AND study_year = '1'));
 
 INSERT INTO exam_session (exam_session, academic_year)
 VALUES ('iarna', '2018-2019');
@@ -244,4 +243,3 @@ VALUES ('toamna', '2019-2020');
 
 INSERT INTO planning (session_id, general_id, course_id, professor_id, number_of_seats, exam_date, classroom)
 VALUES (1, 3, 1, 10, 150, '2020-03-17 10:00:00', 'A02');
-*/

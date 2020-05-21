@@ -1,4 +1,5 @@
-/*
+DROP TABLE professor, course, general, exam_session, student, planning;
+
 CREATE TABLE IF NOT EXISTS professor (
 professor_id BIGSERIAL NOT NULL PRIMARY KEY,
 professor_name VARCHAR(50) NOT NULL
@@ -42,5 +43,4 @@ exam_date TIMESTAMP NOT NULL,
 classroom VARCHAR(50) NOT NULL,
 UNIQUE(exam_date)
 );
-*/
 
