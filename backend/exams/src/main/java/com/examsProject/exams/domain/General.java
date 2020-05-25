@@ -1,76 +1,65 @@
 package com.examsProject.exams.domain;
 
-import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 //@Table(name = "general")
 public class General {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int generalId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int generalId;
 
-    private String major;
-    private int studyYear;
+  private String major;
 
-    @OneToMany(mappedBy = "general")
-    public List<Student> students;
+  private int studyYear;
 
-    @OneToMany(mappedBy = "general")
-    public List<Planning> plannings;
+  // Desi nu e ok din pct de vedere al performantei, pt aceasta practica e de
+  // ajuns :).
+  // Daca vrei sa faci corect si performant iti recomand sa citesti:
+  // https://vladmihalcea.com/the-best-way-to-map-a-onetomany-association-with-jpa-and-hibernate/
+  @OneToMany
+  @JoinColumn(name = "general_id")
+  private List<Student> students = new ArrayList<Student>();
 
-    public General() {}
+  public int getGeneralId() {
+    return generalId;
+  }
 
-    public General(int generalId, String major, int studyYear, List<Planning> plannings, List<Student> students)
-    {
-        this.generalId = generalId;
-        this.major = major;
-        this.studyYear = studyYear;
-        this.plannings = plannings;
-        this.students = students;
-    }
+  public void setGeneralId(int generalId) {
+    this.generalId = generalId;
+  }
 
-    public int getGeneralId() {
-        return generalId;
-    }
+  public String getMajor() {
+    return major;
+  }
 
-    public void setGeneralId(int generalId) {
-        this.generalId = generalId;
-    }
+  public void setMajor(String major) {
+    this.major = major;
+  }
 
-    public String getMajor() {
-        return major;
-    }
+  public int getStudyYear() {
+    return studyYear;
+  }
 
-    public void setMajor(String major) {
-        this.major = major;
-    }
+  public void setStudyYear(int studyYear) {
+    this.studyYear = studyYear;
+  }
 
-    public int getStudyYear() {
-        return studyYear;
-    }
+  public List<Student> getStudents() {
+    return students;
+  }
 
-    public void setStudyYear(int studyYear) {
-        this.studyYear = studyYear;
-    }
-
-    public List<Planning> getPlanning() {
-        return plannings;
-    }
-
-    public void setPlanning(List<Planning> plannings) {
-        this.plannings = plannings;
-    }
-
-    public List<Student> getStudent() {
-        return students;
-    }
-
-    public void setStudent(List<Student> students) {
-        this.students = students;
-    }
-
+  public void setStudents(List<Student> students) {
+    this.students = students;
+  }
 
 }

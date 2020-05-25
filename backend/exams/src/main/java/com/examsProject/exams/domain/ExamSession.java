@@ -1,59 +1,43 @@
 package com.examsProject.exams.domain;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-//@Table(name = "exam_sessions")
+@Table(name = "exam_session")
 public class ExamSession {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int sessionId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int sessionId;
 
-    private String examSession;
-    private String academicYear;
+  private String examSession;
 
-    @OneToMany(mappedBy = "session")
-    private List<Planning> planning;
+  private String academicYear;
 
-    public ExamSession() {}
+  public int getSessionId() {
+    return sessionId;
+  }
 
-    public ExamSession(String examSession, String academicYear, List<Planning> planning)
-    {
-        this.examSession = examSession;
-        this.academicYear = academicYear;
-        this.planning = planning;
-    }
+  public void setSessionId(int sessionId) {
+    this.sessionId = sessionId;
+  }
 
-    public int getSessionId() {
-        return sessionId;
-    }
+  public String getExamSession() {
+    return examSession;
+  }
 
-    public void setSessionId(int sessionId) {
-        this.sessionId = sessionId;
-    }
+  public void setExamsSession(String examSession) {
+    this.examSession = examSession;
+  }
 
-    public String getExamSession() {
-        return examSession;
-    }
+  public String getAcademicYear() {
+    return academicYear;
+  }
 
-    public void setExamsSession(String examSession) {
-        this.examSession = examSession;
-    }
-
-    public String getAcademicYear() {
-        return academicYear;
-    }
-
-    public void setAcademicYear(String academicYear) {
-        this.academicYear = academicYear;
-    }
-
-    public List<Planning> getPlanning() {
-        return planning;
-    }
-
-    public void setPlanning(List<Planning> planning) {
-        this.planning = planning;
-    }
+  public void setAcademicYear(String academicYear) {
+    this.academicYear = academicYear;
+  }
 }
